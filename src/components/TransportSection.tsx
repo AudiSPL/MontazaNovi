@@ -4,7 +4,7 @@ import transportVan from "@/assets/transport-van.jpg";
 
 const TransportSection = () => {
   return (
-    <section className="section-padding bg-graphite-light/30">
+    <section className="section-padding bg-graphite">
       <div className="container-narrow">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Image */}
