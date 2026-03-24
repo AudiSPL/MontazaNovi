@@ -6,10 +6,10 @@ const Footer = () => {
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex items-center gap-3">
-            <img src={logo} alt="MontažaPro" className="h-9 w-9" />
+             <img src={logo} alt="Montaža Nameštaja" className="h-9 w-9" />
             <div>
               <span className="font-heading font-bold text-primary-foreground block">
-                MontažaPro
+                Montaža Nameštaja
               </span>
               <span className="text-xs text-primary-foreground/50">
                 Montaža i demontaža nameštaja · Beograd i okolina
@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
 
         <div className="text-center text-xs text-primary-foreground/30 mt-8">
-          © {new Date().getFullYear()} MontažaPro. Sva prava zadržana.
+          © {new Date().getFullYear()} Montaža Nameštaja. Sva prava zadržana.
         </div>
       </div>
     </footer>
