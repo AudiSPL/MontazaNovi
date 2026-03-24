@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Ruler, MapPin, Clock, RefreshCw, Layers } from "lucide-react";
+import { Award, Ruler, MapPin, Truck, RefreshCw, Layers } from "lucide-react";
 
 const reasons = [
   {
@@ -21,10 +21,10 @@ const reasons = [
       "Pokrivamo Beograd i okolinu. Dolazimo na vašu adresu u dogovorenom terminu, bez kašnjenja.",
   },
   {
-    icon: Clock,
-    title: "Brza organizacija termina",
+    icon: Truck,
+    title: "Prevoz nameštaja",
     description:
-      "Razumemo da vam vreme vredi. Organizujemo termin brzo i efikasno, prilagođeno vašem rasporedu.",
+      "Nudimo prevoz nameštaja od prodajnog mesta do vaše adrese. Sve na jednom mestu — transport, unos i montaža.",
   },
   {
     icon: RefreshCw,
