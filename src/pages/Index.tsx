@@ -4,6 +4,7 @@ import AssemblyAnimation from "@/components/AssemblyAnimation";
 import WhyUsSection from "@/components/WhyUsSection";
 import BrandsSection from "@/components/BrandsSection";
 import ServicesSection from "@/components/ServicesSection";
+import TransportSection from "@/components/TransportSection";
 import ProcessSection from "@/components/ProcessSection";
 import GallerySection from "@/components/GallerySection";
 import CTASection from "@/components/CTASection";
@@ -20,6 +21,7 @@ const Index = () => {
         <WhyUsSection />
         <BrandsSection />
         <ServicesSection />
+        <TransportSection />
         <ProcessSection />
         <GallerySection />
         <CTASection />
