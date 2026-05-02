@@ -1,90 +1,66 @@
-import { motion } from "framer-motion";
 import { Phone, MessageCircle } from "lucide-react";
+
+import { CTAButton } from "@/components/ui/cta-button";
 
 const CTASection = () => {
   return (
-    <section id="kontakt" className="section-padding bg-graphite relative overflow-hidden">
-      {/* Decorative circles */}
-      <div className="absolute -top-32 -right-32 w-64 h-64 rounded-full bg-tool-yellow/5" />
-      <div className="absolute -bottom-20 -left-20 w-48 h-48 rounded-full bg-tool-yellow/5" />
+    <section
+      id="kontakt"
+      className="section-padding relative scroll-mt-24 overflow-hidden bg-graphite"
+      aria-labelledby="cta-heading"
+    >
+      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-tool-yellow/[0.06]" aria-hidden />
+      <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-tool-yellow/[0.05]" aria-hidden />
 
-      <div className="container-narrow relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto"
-        >
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground leading-tight">
-            Potrebna vam je sigurna i brza{" "}
-            <span className="text-gradient">montaža nameštaja?</span>
+      <div className="container-narrow relative z-10 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-xl rounded-2xl border border-white/[0.09] bg-graphite-light/35 px-5 py-8 shadow-xl shadow-black/30 backdrop-blur-sm sm:rounded-3xl sm:px-10 sm:py-11 md:max-w-2xl md:border-white/[0.08]">
+          <p className="text-center text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-tool-yellow">
+            Montaža Nameštaja
+          </p>
+          <h2
+            id="cta-heading"
+            className="mt-4 text-center font-heading text-[clamp(1.875rem,5vw,2.75rem)] font-bold leading-[1.15] tracking-tight text-primary-foreground text-balance max-md:font-extrabold max-md:tracking-[-0.02em] sm:text-4xl md:font-bold md:tracking-tight"
+          >
+            Treba vam montaža nameštaja?
           </h2>
-          <p className="text-primary-foreground/60 text-lg mt-6 mb-4">
-            Pozovite i zakažite termin za montažu ili demontažu nameštaja.
+          <p className="mx-auto mt-5 max-w-lg text-center text-base leading-relaxed text-primary-foreground/[0.74]">
+            Pošaljite slike nameštaja ili pozovite direktno za dogovor termina u Beogradu i okolini.
           </p>
 
-          {/* Phone number */}
-          <a
-            href="tel:+381648780129"
-            className="inline-block font-heading text-4xl sm:text-5xl font-bold text-tool-yellow hover:brightness-110 transition-all mb-8"
-          >
-            064 8780 129
-          </a>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-            <a
-              href="tel:+381648780129"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-tool-yellow text-accent-foreground font-bold px-8 py-4 rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all shadow-lg shadow-[hsl(38,92%,50%,0.3)]"
+          <div className="mt-8 flex flex-col gap-3.5 sm:mt-9 sm:flex-row sm:justify-center sm:gap-4 md:gap-4">
+            <CTAButton
+              variant="primary"
+              size="md"
+              href="tel:0648780129"
+              leftIcon={<Phone strokeWidth={2.25} />}
+              aria-label="Pozovi 064 8780 129"
+              className="flex-1 sm:flex-initial sm:min-w-[12rem]"
             >
-              <Phone size={20} />
-              Pozovite
-            </a>
-            <a
-              href="viber://chat?number=%2B381648780129"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-primary-foreground/20 text-primary-foreground font-semibold px-8 py-4 rounded-xl hover:border-[#7360F2] hover:text-[#7360F2] transition-all"
-            >
-              Viber
-            </a>
-            <a
+              Pozovi odmah
+            </CTAButton>
+            {/* TODO: Potvrditi da je https://wa.me/381648780129 konačan WhatsApp link za „Pošalji slike“ (po potrebi dodati tekst poruke u URL). */}
+            <CTAButton
+              variant="secondary"
+              size="md"
               href="https://wa.me/381648780129"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-primary-foreground/20 text-primary-foreground font-semibold px-8 py-4 rounded-xl hover:border-[#25D366] hover:text-[#25D366] transition-all"
+              leftIcon={<MessageCircle strokeWidth={2} />}
+              aria-label="Pošalji poruku preko WhatsApp-a"
+              className="flex-1 sm:flex-initial sm:min-w-[11rem]"
             >
-              <MessageCircle size={20} />
-              WhatsApp
-            </a>
+              Pošalji slike
+            </CTAButton>
           </div>
 
-          {/* Info */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-primary-foreground/50">
-            <span>📍 Beograd i okolina</span>
-            <span>🕐 Dostupnost radnim danima</span>
-          </div>
+          <p className="mx-auto mt-6 max-w-md text-center text-sm leading-relaxed text-primary-foreground/[0.58] md:mt-7">
+            Najbrža procena je uz slike, dimenzije ili link proizvoda.
+          </p>
 
-          {/* Social */}
-          <div className="flex justify-center gap-4 mt-8">
-            <a
-              href="https://www.instagram.com/montazanamestajabg2021/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/40 hover:text-tool-yellow transition-colors text-sm font-medium"
-            >
-              Instagram
-            </a>
-            <span className="text-primary-foreground/20">•</span>
-            <a
-              href="https://www.facebook.com/montazanamestajabg2021/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary-foreground/40 hover:text-tool-yellow transition-colors text-sm font-medium"
-            >
-              Facebook
-            </a>
-          </div>
-        </motion.div>
+          <p className="mt-5 max-md:leading-snug text-center text-xs text-primary-foreground/45 md:mt-6">
+            Beograd i okolina · dogovor termina na poziv ili poruku
+          </p>
+        </div>
       </div>
     </section>
   );

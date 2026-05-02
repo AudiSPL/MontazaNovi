@@ -1,46 +1,31 @@
-import { motion } from "framer-motion";
-
-const brands = ["IKEA", "Forma Ideale", "JYSK", "Vitorog", "Jela Jagodina"];
+const exampleCategories = ["Serijski / pločasti programi", "Kuhinje i plakari", "Kancelarija i stan"];
 
 const BrandsSection = () => {
   return (
-    <section className="py-16 md:py-20 bg-card border-y border-border">
+    <section className="border-y border-border bg-card py-11 md:py-14" aria-labelledby="brands-heading">
       <div className="container-narrow px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-12"
-        >
-          <span className="text-sm font-semibold text-tool-yellow tracking-wider uppercase">
-            Iskustvo sa vodećim brendovima
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-3">
-            Poznajemo sisteme, poznajemo nameštaj
+        <header className="mx-auto mb-8 max-w-2xl text-center md:mb-9">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-tool-yellow">Uputstva i sistemi</span>
+          <h2 id="brands-heading" className="section-heading mt-3 text-foreground">
+            Iskustvo sa tipičnim programima na tržištu
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
-            Imamo dugogodišnje iskustvo u montaži i demontaži nameštaja poznatih
-            proizvođača kao što su IKEA, Forma Ideale, JYSK, Vitorog i Jela
-            Jagodina. Poznajemo različite sisteme spajanja, okove i načine
-            montaže, što omogućava brz, siguran i precizan rad.
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Montiramo nameštaj prema uputstvima proizvođača — često pločasti programi poput IKEA, JYSK, Forma Ideale i
+            sličnih rešenja. To <span className="text-foreground/90">ne predstavlja zvanična partnerstva</span> sa
+            tim brendovima; radi se o praktičnom iskustvu sa njihovim sistemima montaže.
           </p>
-        </motion.div>
+        </header>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          {brands.map((brand, i) => (
-            <motion.div
-              key={brand}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="bg-background border border-border rounded-xl px-8 py-4 font-heading font-semibold text-foreground text-lg hover:border-tool-yellow/40 hover:shadow-md transition-all duration-300 cursor-default"
+        <ul className="flex flex-wrap justify-center gap-3">
+          {exampleCategories.map((label) => (
+            <li
+              key={label}
+              className="rounded-xl border border-border bg-background px-5 py-2.5 text-sm font-medium text-foreground transition-colors duration-200"
             >
-              {brand}
-            </motion.div>
+              {label}
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

@@ -1,82 +1,53 @@
-import { motion } from "framer-motion";
-import { Phone, CalendarCheck, Hammer, CheckCircle2 } from "lucide-react";
+import { ImagePlus, ClipboardCheck, MapPinned } from "lucide-react";
 
 const steps = [
   {
-    icon: Phone,
+    icon: ImagePlus,
     step: "01",
-    title: "Javljate se",
-    description: "Kontaktirajte nas pozivom, Viber ili WhatsApp porukom. Opišite šta vam treba.",
+    title: "Pošaljete slike",
+    description: "Pošaljite fotografije, dimenzije ili link proizvoda.",
   },
   {
-    icon: CalendarCheck,
+    icon: ClipboardCheck,
     step: "02",
-    title: "Dogovaramo termin",
-    description: "Zajedno nalazimo termin koji vam odgovara. Brza organizacija bez čekanja.",
+    title: "Dobijete procenu",
+    description: "Dogovaramo cenu, termin i detalje montaže.",
   },
   {
-    icon: Hammer,
+    icon: MapPinned,
     step: "03",
-    title: "Vršimo montažu",
-    description: "Dolazimo na adresu sa potrebnim alatom i profesionalno obavljamo posao.",
-  },
-  {
-    icon: CheckCircle2,
-    step: "04",
-    title: "Nameštaj je spreman",
-    description: "Prostor ostaje uredan, a nameštaj stabilan i spreman za svakodnevnu upotrebu.",
+    title: "Dolazimo na adresu",
+    description: "Montaža se radi precizno, uz uredno ostavljen prostor.",
   },
 ];
 
 const ProcessSection = () => {
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background" aria-labelledby="process-heading">
       <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-semibold text-tool-yellow tracking-wider uppercase">
-            Kako radi naš proces
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-3">
-            Od poziva do gotovog nameštaja
+        <header className="mb-8 text-center md:mb-12">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-tool-yellow">Koraci</span>
+          <h2 id="process-heading" className="section-heading mt-3 text-foreground">
+            Kako funkcioniše
           </h2>
-        </motion.div>
+        </header>
 
-        <div className="relative">
-          {/* Timeline line - desktop only */}
-          <div className="hidden lg:block absolute top-24 left-0 right-0 h-0.5 bg-border" />
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {steps.map((s, i) => (
-              <motion.div
-                key={s.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
-                className="relative text-center"
-              >
-                {/* Step circle */}
-                <div className="relative z-10 w-16 h-16 mx-auto rounded-full bg-tool-yellow flex items-center justify-center mb-6 shadow-lg shadow-[hsl(38,92%,50%,0.25)]">
-                  <s.icon className="text-accent-foreground" size={28} />
-                </div>
-                <span className="text-xs font-bold text-tool-yellow tracking-widest uppercase mb-1 block">
-                  Korak {s.step}
-                </span>
-                <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-                  {s.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {s.description}
-                </p>
-              </motion.div>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-5 lg:gap-6">
+          {steps.map((s) => (
+            <article
+              key={s.step}
+              className="flex flex-col rounded-2xl border border-border bg-card px-7 py-8 text-center md:px-6 md:py-7 md:text-left lg:px-7 lg:py-8"
+            >
+              <div className="mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-tool-yellow text-accent-foreground shadow-md shadow-black/25 md:mx-0 md:h-[3.75rem] md:w-[3.75rem]">
+                <s.icon size={26} strokeWidth={2} aria-hidden />
+              </div>
+              <p className="mb-2 text-[0.6875rem] font-bold uppercase tracking-widest text-tool-yellow">
+                Korak {s.step}
+              </p>
+              <h3 className="font-heading text-lg font-semibold leading-snug text-foreground">{s.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+            </article>
+          ))}
         </div>
       </div>
     </section>

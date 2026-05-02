@@ -1,70 +1,50 @@
-# Welcome to your Montaza Namestaja project
+# Montaža Nameštaja — veb prezentacija
 
-## Project info
-**URL**: (add your deployed website URL here)
+Lokalni projekat (Vite + React + TypeScript + Tailwind). Javni sadržaj na sajtu koristi brend **Montaža Nameštaja**.
 
-## How can I edit this code?
+## Podaci o projektu
 
-There are several ways of editing your application.
+**URL**: (ovde dopuni adresu žive instalacije kad bude dostupna)
 
-**Edit the code**
+## Rad u kodu
 
-Make changes in this repository and redeploy to publish updates.
+**Izmena kroz repozitorijum**
 
-**Use your preferred IDE**
+Menjaš kod ovde i ponovo pokrećeš build (`npm run build`), pa objavljuješ `dist/` folder na hosting.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will be reflected after redeploy.
+**Lokalni razvoj**
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Potrebni su Node.js i npm — [instalacija preko nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-Follow these steps:
+Koraci:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
+git clone <URL_REPORIZITORIJUMA>
+cd <NAZIV_FOLDERA>
 npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+**Izmena na GitHub-u / Codespaces**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Kao i kod drugih repozitorijumima — izmena fajla ili Codespace okruženje, pa commit/push.
 
-**Use GitHub Codespaces**
+## Tehnologije
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- Vite  
+- TypeScript  
+- React  
+- shadcn/ui  
+- Tailwind CSS  
 
-## What technologies are used for this project?
+## Objavljivanje
 
-This project is built with:
+```sh
+npm run build
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Hostuješ sadržaj `dist/` foldera kod svog provajdera.
 
-## How can I deploy this project?
+## Domen
 
-Build and deploy using your hosting provider (e.g. upload the `dist/` folder from `npm run build`).
-
-## Can I connect a custom domain?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Custom domains depend on your hosting provider configuration.
+Podesavanje prilagođenog domena zavisi od hosting provajdera (DNS i HTTPS).

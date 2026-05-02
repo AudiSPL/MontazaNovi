@@ -1,56 +1,68 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * Premium dark tokens — palette
+ * Charcoal #17191F · Amber #F2A532 · Cream #F5F1EA · Muted #9C9C9C
+ */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 13%;
+    --charcoal: 225 15% 11%;
+    --cream: 38 32% 94%;
+    --amber-brand: 37 88% 57%;
+    --amber-deep: 28 82% 52%;
+    --muted-brand: 0 0% 61%;
+    --surface-raised: 222 18% 14%;
+    --surface-elevated: 222 16% 20%;
 
-    --card: 40 20% 97%;
-    --card-foreground: 220 15% 13%;
+    --background: 225 15% 11%;
+    --foreground: 38 32% 94%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 13%;
+    --card: 222 18% 14%;
+    --card-foreground: 38 32% 94%;
 
-    --primary: 220 10% 16%;
-    --primary-foreground: 40 30% 96%;
+    --popover: 222 18% 13%;
+    --popover-foreground: 38 32% 94%;
 
-    --secondary: 40 20% 94%;
-    --secondary-foreground: 220 10% 16%;
+    --primary: 225 15% 11%;
+    --primary-foreground: 38 32% 94%;
 
-    --muted: 40 10% 94%;
-    --muted-foreground: 220 5% 46%;
+    --secondary: 220 14% 18%;
+    --secondary-foreground: 38 32% 94%;
 
-    --accent: 38 92% 50%;
-    --accent-foreground: 220 10% 10%;
+    --muted: 220 12% 17%;
+    --muted-foreground: 0 0% 61%;
 
-    --destructive: 0 84% 60%;
+    --accent: 37 88% 57%;
+    --accent-foreground: 225 15% 11%;
+
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 40 15% 88%;
-    --input: 40 15% 88%;
-    --ring: 38 92% 50%;
+    --border: 0 0% 100% / 0.1;
+    --input: 0 0% 100% / 0.12;
+    --ring: 37 88% 57%;
 
     --radius: 0.75rem;
 
-    --wood: 30 40% 90%;
-    --wood-dark: 25 30% 30%;
-    --graphite: 220 10% 16%;
-    --graphite-light: 220 8% 28%;
-    --tool-yellow: 38 92% 50%;
-    --tool-orange: 25 95% 53%;
+    --wood: 38 14% 14%;
+    --wood-dark: 30 25% 24%;
+    --graphite: 225 15% 11%;
+    --graphite-light: 222 16% 20%;
+    --tool-yellow: 37 88% 57%;
+    --tool-orange: 28 82% 52%;
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 225 15% 12%;
+    --sidebar-foreground: 38 32% 94%;
+    --sidebar-primary: 37 88% 57%;
+    --sidebar-primary-foreground: 225 15% 11%;
+    --sidebar-accent: 220 14% 18%;
+    --sidebar-accent-foreground: 38 32% 94%;
+    --sidebar-border: 0 0% 100% / 0.08;
+    --sidebar-ring: 37 88% 57%;
   }
 }
 
@@ -59,18 +71,54 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-body antialiased;
+  html {
+    @apply scroll-smooth overflow-x-clip;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+  body {
+    @apply min-h-screen min-w-0 bg-background text-foreground font-body text-base leading-relaxed antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading tracking-tight text-foreground;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  a:focus-visible {
+    @apply rounded-sm outline-none ring-2 ring-ring ring-offset-2 ring-offset-background transition-shadow duration-200 ease-out;
+  }
+
+  button:focus-visible:not(:disabled) {
+    @apply outline-none transition-shadow duration-200 ease-out;
+  }
+
+  button:focus-visible:not(:disabled):not([class*="focus-visible:ring"]) {
+    @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--tool-yellow))] to-[hsl(var(--tool-orange))];
+  }
+
+  .bg-charcoal {
+    background-color: hsl(var(--charcoal));
+  }
+
+  .text-cream {
+    color: hsl(var(--cream));
   }
 
   .bg-graphite {
@@ -85,6 +133,14 @@
     background-color: hsl(var(--wood));
   }
 
+  .text-amber-brand {
+    color: hsl(var(--amber-brand));
+  }
+
+  .text-muted-brand {
+    color: hsl(var(--muted-brand));
+  }
+
   .text-tool-yellow {
     color: hsl(var(--tool-yellow));
   }
@@ -96,19 +152,36 @@
   .border-tool-yellow {
     border-color: hsl(var(--tool-yellow));
   }
+
+  .border-border-subtle {
+    border-color: hsl(0 0% 100% / 0.08);
+  }
+
+  .border-amber-subtle {
+    border-color: hsl(var(--amber-brand) / 0.25);
+  }
+
+  /* Optional hero accent — use sparingly on headline highlights */
+  .font-hero-accent {
+    font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    font-style: italic;
+    font-weight: 500;
+  }
 }
 
 @layer components {
+  /* Ritam sekcija: už na mobilnom, prostor na desktopu */
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+    /* Uži vertikalni ritam na najužem ekranu; sm+ i md+ kao ranije */
+    @apply px-4 py-[2.375rem] sm:px-6 sm:py-14 md:py-16 lg:px-8 lg:py-[4.75rem];
   }
 
   .container-narrow {
-    @apply max-w-6xl mx-auto;
+    @apply mx-auto w-full min-w-0 max-w-6xl;
   }
-}
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+  /* Sekundarni naslovi sekcija — jedinstvena skala (clamp iz theme.display-sm) */
+  .section-heading {
+    @apply font-heading text-display-sm font-bold leading-[1.12] tracking-tight text-balance max-md:font-extrabold max-md:tracking-[-0.02em] md:font-bold md:tracking-tight;
+  }
 }

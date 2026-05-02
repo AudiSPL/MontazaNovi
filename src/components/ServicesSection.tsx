@@ -1,95 +1,79 @@
-import { motion } from "framer-motion";
 import {
-  Wrench,
-  PackageOpen,
-  Truck,
-  DoorOpen,
-  Building2,
-  Settings,
+  LayoutGrid,
+  CookingPot,
+  BedDouble,
+  Briefcase,
+  Boxes,
+  RefreshCw,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Wrench,
-    title: "Montaža novog nameštaja",
+    icon: LayoutGrid,
+    title: "Plakari i ormari",
     description:
-      "Profesionalno sklapanje novog nameštaja prema uputstvu proizvođača. Brzo, precizno i bez oštećenja.",
+      "Sklapanje, nivelacija, štelovanje vrata i montaža unutrašnjih elemenata.",
   },
   {
-    icon: PackageOpen,
-    title: "Demontaža postojećeg nameštaja",
+    icon: CookingPot,
+    title: "Kuhinje i elementi",
     description:
-      "Pažljivo rasklapanje nameštaja za selidbu ili zamenu. Svi delovi se čuvaju uredno za ponovnu montažu.",
+      "Montaža kuhinjskih elemenata, fioka, šarki i osnovno uklapanje po prostoru.",
   },
   {
-    icon: Truck,
-    title: "Ponovna montaža nakon selidbe",
+    icon: BedDouble,
+    title: "Kreveti i komode",
     description:
-      "Kada se preselite, ponovo sklapamo vaš nameštaj na novoj lokaciji. Brzo i bez stresa.",
+      "Precizno sklapanje kreveta, komoda, noćnih stočića i dnevnih elemenata.",
   },
   {
-    icon: DoorOpen,
-    title: "Plakari, kreveti, komode, kuhinje",
-    description:
-      "Sklapanje svih vrsta nameštaja — od plakara i kreveta do TV elemenata i kuhinjskih garnitura.",
-  },
-  {
-    icon: Building2,
+    icon: Briefcase,
     title: "Kancelarijski nameštaj",
-    description:
-      "Montaža nameštaja za poslovne prostore — radni stolovi, police, ormari i kompleksni sistemi.",
+    description: "Stolovi, police, ormarići i opremanje radnog prostora.",
   },
   {
-    icon: Settings,
-    title: "Korekcije i podešavanja",
+    icon: Boxes,
+    title: "IKEA, JYSK, Forma Ideale",
     description:
-      "Sitne korekcije nakon montaže — podešavanje vrata, fioka i mehanizama za savršeno funkcionisanje.",
+      "Iskustvo sa pločastim nameštajem i uputstvima različitih proizvođača.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Demontaža i ponovna montaža",
+    description: "Rastavljanje, prenos po dogovoru i ponovno sklapanje nameštaja.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="usluge" className="section-padding bg-graphite">
+    <section id="usluge" className="section-padding bg-graphite" aria-labelledby="services-heading">
       <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-semibold text-tool-yellow tracking-wider uppercase">
-            Naše usluge
+        <header className="mb-8 text-center md:mb-12">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-tool-yellow">
+            Montaža Nameštaja
           </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-primary-foreground mt-3">
-            Sve što vam treba na jednom mestu
+          <h2 id="services-heading" className="section-heading mt-3 text-primary-foreground">
+            Šta montiramo
           </h2>
-          <p className="text-primary-foreground/60 mt-4 max-w-xl mx-auto">
-            Pružamo usluge montaže i demontaže različitih vrsta nameštaja, od
-            pojedinačnih elemenata do složenijih sistema.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-primary-foreground/[0.68] sm:mt-4 sm:text-base">
+            Montaža i demontaža nameštaja za stanove, kuće i kancelarije.
           </p>
-        </motion.div>
+        </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((service, i) => (
-            <motion.div
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3 lg:gap-6">
+          {services.map((service) => (
+            <article
               key={service.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-graphite-light/50 border border-primary-foreground/10 rounded-2xl p-6 hover:border-tool-yellow/30 transition-all duration-300"
+              className="group flex min-h-[11rem] min-w-0 flex-col rounded-2xl border border-white/[0.08] bg-graphite-light/40 px-7 py-8 transition-colors duration-200 hover:border-tool-yellow/25 sm:min-h-[12rem] sm:px-7 sm:py-8 md:px-6 md:py-7 lg:px-7 lg:py-8"
             >
-              <div className="w-12 h-12 rounded-xl bg-tool-yellow/10 flex items-center justify-center mb-4 group-hover:bg-tool-yellow/20 transition-colors">
-                <service.icon className="text-tool-yellow" size={24} />
+              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-tool-yellow/10 text-tool-yellow ring-1 ring-tool-yellow/15 transition-colors duration-200 group-hover:bg-tool-yellow/[0.14]">
+                <service.icon size={24} strokeWidth={2} aria-hidden />
               </div>
-              <h3 className="font-heading font-semibold text-lg text-primary-foreground mb-2">
+              <h3 className="font-heading text-[1.0625rem] font-semibold leading-snug text-primary-foreground sm:text-lg">
                 {service.title}
               </h3>
-              <p className="text-primary-foreground/60 text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </motion.div>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-primary-foreground/[0.62]">{service.description}</p>
+            </article>
           ))}
         </div>
       </div>

@@ -16,8 +16,26 @@ export default {
       fontFamily: {
         heading: ['"Space Grotesk"', 'system-ui', 'sans-serif'],
         body: ['Inter', 'system-ui', 'sans-serif'],
+        heroAccent: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+      },
+      fontSize: {
+        display: [
+          'clamp(2.25rem, 5vw + 1rem, 4.5rem)',
+          { lineHeight: '1.08', letterSpacing: '-0.02em' },
+        ],
+        'display-sm': [
+          'clamp(1.75rem, 3.5vw + 0.75rem, 2.75rem)',
+          { lineHeight: '1.12', letterSpacing: '-0.02em' },
+        ],
       },
       colors: {
+        charcoal: "hsl(var(--charcoal))",
+        cream: "hsl(var(--cream))",
+        "amber-brand": "hsl(var(--amber-brand))",
+        "amber-deep": "hsl(var(--amber-deep))",
+        "muted-brand": "hsl(var(--muted-brand))",
+        "surface-raised": "hsl(var(--surface-raised))",
+        "surface-elevated": "hsl(var(--surface-elevated))",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

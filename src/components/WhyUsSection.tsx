@@ -1,87 +1,54 @@
-import { motion } from "framer-motion";
-import { Award, Ruler, MapPin, Truck, RefreshCw, Layers } from "lucide-react";
+import { MapPin, Ruler, CalendarClock, Layers } from "lucide-react";
 
 const reasons = [
   {
-    icon: Award,
-    title: "Dugogodišnje iskustvo",
-    description:
-      "Iza nas su godine rada sa različitim tipovima nameštaja i konstrukcionih sistema. Svaki posao obavljamo sa sigurnošću.",
+    icon: MapPin,
+    title: "Dolazak na adresu",
+    description: "Radimo na lokaciji u Beogradu i okolini.",
   },
   {
     icon: Ruler,
-    title: "Precizna i uredna montaža",
-    description:
-      "Radimo pažljivo i temeljno. Nakon montaže, svaki element je stabilan, funkcionalan i spreman za korišćenje.",
+    title: "Precizan i uredan rad",
+    description: "Pažljiva montaža po uputstvu i čist završetak.",
   },
   {
-    icon: MapPin,
-    title: "Dolazak na adresu",
-    description:
-      "Pokrivamo Beograd i okolinu. Dolazimo na vašu adresu u dogovorenom terminu, bez kašnjenja.",
-  },
-  {
-    icon: Truck,
-    title: "Prevoz nameštaja",
-    description:
-      "Nudimo prevoz nameštaja od prodajnog mesta do vaše adrese. Sve na jednom mestu — transport, unos i montaža.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Montaža i demontaža",
-    description:
-      "Bilo da sklapate nov nameštaj ili rasklapate postojeći za selidbu — pokrivamo obe usluge.",
+    icon: CalendarClock,
+    title: "Dogovor pre dolaska",
+    description: "Termin i obim posla znate unapred.",
   },
   {
     icon: Layers,
-    title: "Rad sa poznatim brendovima",
-    description:
-      "Poznajemo sisteme spajanja različitih proizvođača, od IKEA do Forma Ideale. Precizan rad bez improvizacije.",
+    title: "Iskustvo sa različitim proizvođačima",
+    description: "Pločasti programi i različiti sistemi spajanja.",
   },
 ];
 
 const WhyUsSection = () => {
   return (
-    <section id="zasto-mi" className="section-padding bg-background">
+    <section id="zasto-mi" className="section-padding bg-background" aria-labelledby="why-heading">
       <div className="container-narrow">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-sm font-semibold text-tool-yellow tracking-wider uppercase">
-            Zašto klijenti biraju nas
-          </span>
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-foreground mt-3">
-            Poverenje stečeno radom
+        <header className="mb-8 text-center md:mb-11">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-tool-yellow">Pouzdan partner</span>
+          <h2 id="why-heading" className="section-heading mt-3 text-foreground">
+            Zašto klijenti biraju Montažu Nameštaja
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto">
-            Svaki posao prilazimo sa istom pažnjom i profesionalnošću, bez obzira na obim ili složenost.
+          <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base">
+            Jasno obećanje, bez nepotrebnog žurbe.
           </p>
-        </motion.div>
+        </header>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {reasons.map((reason, i) => (
-            <motion.div
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:gap-5 xl:grid-cols-4">
+          {reasons.map((reason) => (
+            <article
               key={reason.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="group bg-card rounded-2xl p-6 border border-border hover:border-tool-yellow/30 hover:shadow-lg hover:shadow-[hsl(38,92%,50%,0.06)] transition-all duration-300"
+              className="flex min-w-0 flex-col rounded-2xl border border-border bg-card px-7 py-8 transition-colors duration-200 hover:border-tool-yellow/25 sm:px-7 sm:py-8 md:px-6 md:py-7 xl:px-7 xl:py-8"
             >
-              <div className="w-12 h-12 rounded-xl bg-tool-yellow/10 flex items-center justify-center mb-4 group-hover:bg-tool-yellow/20 transition-colors">
-                <reason.icon className="text-tool-yellow" size={24} />
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-tool-yellow/10 text-tool-yellow ring-1 ring-tool-yellow/15">
+                <reason.icon size={22} strokeWidth={2} aria-hidden />
               </div>
-              <h3 className="font-heading font-semibold text-lg text-foreground mb-2">
-                {reason.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {reason.description}
-              </p>
-            </motion.div>
+              <h3 className="font-heading text-[1.0625rem] font-semibold leading-snug text-foreground">{reason.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{reason.description}</p>
+            </article>
           ))}
         </div>
       </div>

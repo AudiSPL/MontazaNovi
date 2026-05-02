@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <title>Montaža Nameštaja</title>
+  <!-- Icon-only: cabinet stile + hinge + „D“ -->
+  <path fill="#F2A532" d="M12 14 34 18 36 22 36 78 34 82 12 86 12 14z" />
+  <rect x="18" y="40" width="20" height="20" rx="3" fill="#F5F1EA" />
+  <circle cx="27" cy="50" r="3.5" fill="#F2A532" />
+  <circle cx="35" cy="50" r="3.5" fill="#F2A532" />
+  <path fill="#F2A532" d="M42 18h12v64H42V18z" />
+  <path
+    fill="#F2A532"
+    d="M54 18h8c20 0 32 14 32 32s-12 32-32 32h-8V66h6c12 0 20-8 20-16s-8-16-20-16h-6V18z"
+  />
+</svg>

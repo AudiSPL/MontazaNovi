@@ -15,14 +15,14 @@ const Index = () => {
   return (
     <>
       <Header />
-      <main>
+      <main className="min-w-0 overflow-x-clip">
         <HeroSection />
         <AssemblyAnimation />
+        <ServicesSection />
+        <ProcessSection />
         <WhyUsSection />
         <BrandsSection />
-        <ServicesSection />
         <TransportSection />
-        <ProcessSection />
         <GallerySection />
         <CTASection />
       </main>
