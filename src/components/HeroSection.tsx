@@ -1,6 +1,7 @@
 import { Phone, MessageCircle, ArrowRight } from "lucide-react";
 import heroBg from "@/assets/hero-bg.jpg";
 import { CTAButton } from "@/components/ui/cta-button";
+import { preferWhatsAppAppOnMobile, WHATSAPP_WEB_URL } from "@/lib/whatsapp";
 
 const stats = [
   { value: "10+", label: "godina iskustva" },
@@ -86,13 +87,14 @@ const HeroSection = () => {
             >
               Pozovi odmah
             </CTAButton>
-            {/* TODO: Potvrditi da je https://wa.me/381648780129 konačan WhatsApp link za „Pošalji slike“ (po potrebi dodati tekst poruke u URL). */}
+            {/* TODO: Potvrditi broj 381648780129 i eventualnu poruku u URL (api.whatsapp.com). */}
             <CTAButton
               variant="secondary"
               size="lg"
-              href="https://wa.me/381648780129"
+              href={WHATSAPP_WEB_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={preferWhatsAppAppOnMobile}
               leftIcon={<MessageCircle strokeWidth={2} />}
               aria-label="Pošalji poruku preko WhatsApp-a"
               className="w-full flex-1 min-h-[56px] md:min-h-0 md:w-auto md:flex-none md:min-w-[11rem]"

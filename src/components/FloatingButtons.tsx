@@ -1,5 +1,7 @@
 import { Phone, MessageCircle } from "lucide-react";
 
+import { preferWhatsAppAppOnMobile, WHATSAPP_WEB_URL } from "@/lib/whatsapp";
+
 const fabBtn =
   "flex shrink-0 items-center justify-center rounded-full shadow-lg transition-[transform,filter] duration-200 hover:brightness-110 hover:-translate-y-0.5 active:translate-y-0";
 
@@ -14,11 +16,12 @@ const FloatingButtons = () => {
       role="toolbar"
       aria-label="Brzi kontakt — Montaža Nameštaja"
     >
-      {/* TODO: Potvrditi da su wa.me i viber:// linkovi konačni za posao (nalog / poruka). */}
+      {/* TODO: Potvrditi WhatsApp (381648780129) i viber:// linkove za posao. */}
       <a
-        href="https://wa.me/381648780129"
+        href={WHATSAPP_WEB_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={preferWhatsAppAppOnMobile}
         className={`${fabBtn} h-14 w-14 bg-[#25D366] text-white ring-2 ring-black/10`}
         aria-label="Pošalji poruku preko WhatsApp-a"
       >

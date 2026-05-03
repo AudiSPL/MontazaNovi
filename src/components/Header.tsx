@@ -5,6 +5,7 @@ import logoMark from "@/assets/logo-mark.png";
 import { BrandNavTabs, type BrandNavTabItem } from "@/components/ui/brand-nav-tabs";
 import { CTAButton } from "@/components/ui/cta-button";
 import { cn } from "@/lib/utils";
+import { preferWhatsAppAppOnMobile, WHATSAPP_WEB_URL } from "@/lib/whatsapp";
 
 function mobileNavMatchesHash(href: string, hash: string): boolean {
   const h = hash || "";
@@ -205,13 +206,16 @@ const Header = () => {
                 >
                   Pozovi odmah
                 </CTAButton>
-                {/* TODO: Potvrditi da su wa.me i viber:// linkovi konačni za posao. */}
+                {/* TODO: Potvrditi WhatsApp (381648780129) i viber:// linkove za posao. */}
                 <div className="mt-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-[12.5px] font-medium leading-snug text-primary-foreground/65">
                   <a
-                    href="https://wa.me/381648780129"
+                    href={WHATSAPP_WEB_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={closeMenu}
+                    onClick={(e) => {
+                      preferWhatsAppAppOnMobile(e);
+                      closeMenu();
+                    }}
                     className="rounded-sm px-1 py-0.5 text-tool-yellow/95 underline decoration-tool-yellow/35 underline-offset-2 transition-colors hover:text-tool-yellow hover:decoration-tool-yellow/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tool-yellow focus-visible:ring-offset-2 focus-visible:ring-offset-[hsl(var(--graphite))]"
                     aria-label="Pošalji poruku preko WhatsApp-a"
                   >
